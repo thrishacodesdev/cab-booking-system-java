@@ -12,7 +12,7 @@ class Rider
     this.phoneNumber=phoneNumber;
     this.rating=5.0;
   }
-  public String getRiderid()
+  public String getRiderId()
   {
     return riderId;
 
@@ -21,7 +21,7 @@ class Rider
   {
     return name;
   }
-  public String getPhonenumber()
+  public String getPhoneNumber()
   {
     return phoneNumber;
   }
