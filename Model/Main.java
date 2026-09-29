@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
   public static void main(String[]args)
   {
@@ -14,13 +17,13 @@ public class Main {
         System.out.println(rider.getRating());
 
 
-        Driver driver=new Driver("356u","Nagappan","55657434676","0569jg0");
-       System.out.println(driver.getAvailiabilityStatus());
+        Driver driver1=new Driver("356u","Nagappan","55657434676","0569jg0");
+       System.out.println(driver1.getAvailiabilityStatus());
 
-        driver.setAvailiabilityStatus(DriverStatus.AVAILABLE);
-        System.out.println(driver.getAvailiabilityStatus());
+        driver1.setAvailiabilityStatus(DriverStatus.AVAILABLE);
+        System.out.println(driver1.getAvailiabilityStatus());
 
-        Ride ride=new Ride("loed46",9.45,rider,driver);
+        Ride ride=new Ride("loed46",9.45,rider,driver1);
 System.out.println(ride.getRideId());
 System.out.println(ride.getDistance());
 System.out.println(ride.getFare());
@@ -35,6 +38,35 @@ System.out.println(ride.getFare());
 ride.setRideStatus(RideStatus.ONGOING);
 System.out.println(ride.getRideStatus());
 
-  }
-}
+  
 
+  List<Driver>driverlist=new ArrayList<>();
+
+  Driver driver2=new Driver("thsl34gof", "Thara", "3865739597", "hdieu2");
+  driver2.setAvailiabilityStatus(DriverStatus.BUSY);
+
+  System.out.println(driver2.getAvailiabilityStatus());
+
+  Driver driver3=new Driver("wjdnfg78", "Trisha", "3640584578", "rogh967");
+  driver3.setAvailiabilityStatus(DriverStatus.OFFLINE);
+
+  System.out.println(driver3.getAvailiabilityStatus());
+
+  driverlist.add(driver1);
+  driverlist.add(driver2);
+  driverlist.add(driver3);
+
+  List<Driver>availiableDrivers=new ArrayList<>();
+  for(Driver d:driverlist)
+  {
+    if(d.getAvailiabilityStatus()==DriverStatus.AVAILABLE)
+    {
+      availiableDrivers.add(d);
+    }
+  }
+for(Driver d:availiableDrivers)
+{
+    System.out.println(d.getName());
+}
+}
+}
