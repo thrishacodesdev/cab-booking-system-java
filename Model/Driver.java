@@ -38,4 +38,9 @@ class Driver
   {
     this.availiabilityStatus=status;
   }
+@Override 
+  public String toString()
+  {
+    return "Driver{driverId="+driverId+" , name="+name+" , status="+availiabilityStatus+"}";
+  }
 }

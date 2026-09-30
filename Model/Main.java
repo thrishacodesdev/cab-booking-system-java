@@ -68,5 +68,8 @@ for(Driver d:availiableDrivers)
 {
     System.out.println(d.getName());
 }
+System.out.println(driver1);
+System.out.println(rider);
+System.out.println(ride);
 }
 }

@@ -41,5 +41,9 @@ class Rider
   {
     return rating;
   }
-
+ @Override 
+public String toString()
+  {
+    return "Rider{riderId="+riderId+" , name="+name+" , phoneNumber="+phoneNumber+"}";
+  }
 }

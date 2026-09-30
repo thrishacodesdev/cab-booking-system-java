@@ -54,4 +54,9 @@ public RideStatus getRideStatus()
 {
   return rideStatus;
 }
+@Override 
+public String toString()
+  {
+    return "Ride{rideId= "+rideId+" , Driver= "+driver+" , rider= "+rider+" , distance= "+distance+" , rideStatus= "+rideStatus+ "}";
+  }
 }
