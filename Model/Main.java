@@ -40,8 +40,6 @@ System.out.println(ride.getRideStatus());
 
   
 
-  List<Driver>driverlist=new ArrayList<>();
-
   Driver driver2=new Driver("thsl34gof", "Thara", "3865739597", "hdieu2");
   driver2.setAvailiabilityStatus(DriverStatus.BUSY);
 
@@ -52,24 +50,19 @@ System.out.println(ride.getRideStatus());
 
   System.out.println(driver3.getAvailiabilityStatus());
 
+//create driverlist
+List<Driver>driverlist=new ArrayList<>();
+
   driverlist.add(driver1);
   driverlist.add(driver2);
   driverlist.add(driver3);
 
-  List<Driver>availiableDrivers=new ArrayList<>();
-  for(Driver d:driverlist)
-  {
-    if(d.getAvailiabilityStatus()==DriverStatus.AVAILABLE)
-    {
-      availiableDrivers.add(d);
-    }
-  }
-for(Driver d:availiableDrivers)
+  
+List<Driver> availableDrivers=DriverService.findAllAvailableDriver(driverlist);
+for(Driver d:availableDrivers)
 {
-    System.out.println(d.getName());
+  System.out.println(d);
 }
-System.out.println(driver1);
-System.out.println(rider);
-System.out.println(ride);
+
 }
 }
