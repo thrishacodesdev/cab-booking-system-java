@@ -15,5 +15,18 @@ for(Driver d:allDrivers)
 }
 return availableDrivers;
   }
+
+  public static Driver findFirstAvailableDriver(List<Driver> allDrivers)
+  {
+    List<Driver>available=findAllAvailableDriver(allDrivers);
+
+    if(available.isEmpty())
+    {
+      return null;
+    }
+    else{
+      return available.get(0);
+    }
+  }
 }
 

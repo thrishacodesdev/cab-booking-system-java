@@ -63,6 +63,16 @@ for(Driver d:availableDrivers)
 {
   System.out.println(d);
 }
+Driver firstAvailableDriver=DriverService.findFirstAvailableDriver(driverlist);
+if(firstAvailableDriver==null)
+{
+  System.out.println("No Available Drivers");
+}
+else{
+  System.out.println(firstAvailableDriver);
+}
+
+
 
 }
 }
