@@ -28,5 +28,22 @@ return availableDrivers;
       return available.get(0);
     }
   }
+
+  public static void assignDriverToRide(Ride ride,List<Driver>allDrivers)
+  {
+
+Driver firstAvailableDriver=findFirstAvailableDriver(allDrivers);
+if(firstAvailableDriver==null)
+{
+  //System.out.println("No Available Drivers");
+  ride.setRideStatus(RideStatus.CANCELLED);
+}
+else{
+  //System.out.println(firstAvailableDriver);
+  ride.setDriver(firstAvailableDriver);
+  firstAvailableDriver.setAvailiabilityStatus(DriverStatus.BUSY);
+}
+
+  }
 }
 

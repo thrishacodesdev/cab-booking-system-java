@@ -7,12 +7,12 @@ private RideStatus rideStatus;
 private Driver driver;
 private Rider rider;
 
-public Ride(String rideId,double distance,Rider rider,Driver driver)
+public Ride(String rideId,double distance,Rider rider)
 {
   this.rideId=rideId;
   this.distance=distance;
   this.rider=rider;
-  this.driver=driver;
+  this.driver=null;
   this.fare=0.0;
   this.rideStatus=RideStatus.REQUESTED;
 }
@@ -53,6 +53,11 @@ public double getFare()
 public RideStatus getRideStatus()
 {
   return rideStatus;
+}
+
+public void setDriver(Driver driver)
+{
+  this.driver=driver;
 }
 @Override 
 public String toString()

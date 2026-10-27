@@ -4,44 +4,44 @@ import java.util.List;
 public class Main {
   public static void main(String[]args)
   {
-   Rider rider=new Rider("4567E","Trisha","847593946028");
-    System.out.println(rider.getRiderId());
-        System.out.println(rider.getName());
-    System.out.println(rider.getPhoneNumber());
+   Rider rider1=new Rider("4567E","Trisha","847593946028");
+    System.out.println(rider1.getRiderId());
+        System.out.println(rider1.getName());
+    System.out.println(rider1.getPhoneNumber());
     
     
 
-    rider.setRating(4.0);
-    System.out.println(rider.getRating());
-    rider.setRating(6.0);
-        System.out.println(rider.getRating());
+    rider1.setRating(4.0);
+    System.out.println(rider1.getRating());
+    rider1.setRating(6.0);
+        System.out.println(rider1.getRating());
 
 
         Driver driver1=new Driver("356u","Nagappan","55657434676","0569jg0");
        System.out.println(driver1.getAvailiabilityStatus());
 
-        driver1.setAvailiabilityStatus(DriverStatus.AVAILABLE);
+        driver1.setAvailiabilityStatus(DriverStatus.BUSY);
         System.out.println(driver1.getAvailiabilityStatus());
 
-        Ride ride=new Ride("loed46",9.45,rider,driver1);
-System.out.println(ride.getRideId());
-System.out.println(ride.getDistance());
-System.out.println(ride.getFare());
-System.out.println(ride.getRideStatus());
+        Ride ride1=new Ride("loed46",9.45,rider1);
+System.out.println(ride1.getRideId());
+System.out.println(ride1.getDistance());
+System.out.println(ride1.getFare());
+System.out.println(ride1.getRideStatus());
 
-System.out.println(ride.getRider().getRiderId());
-ride.setFare(160.0);
-System.out.println(ride.getFare());
-ride.setFare(-150.0);
-System.out.println(ride.getFare());
+System.out.println(ride1.getRider().getRiderId());
+ride1.setFare(160.0);
+System.out.println(ride1.getFare());
+ride1.setFare(-150.0);
+System.out.println(ride1.getFare());
 
-ride.setRideStatus(RideStatus.ONGOING);
-System.out.println(ride.getRideStatus());
+ride1.setRideStatus(RideStatus.ONGOING);
+System.out.println(ride1.getRideStatus());
 
   
 
   Driver driver2=new Driver("thsl34gof", "Thara", "3865739597", "hdieu2");
-  driver2.setAvailiabilityStatus(DriverStatus.BUSY);
+  driver2.setAvailiabilityStatus(DriverStatus.AVAILABLE);
 
   System.out.println(driver2.getAvailiabilityStatus());
 
@@ -57,22 +57,24 @@ List<Driver>driverlist=new ArrayList<>();
   driverlist.add(driver2);
   driverlist.add(driver3);
 
-  
+ //all available drivers from driver list 
 List<Driver> availableDrivers=DriverService.findAllAvailableDriver(driverlist);
 for(Driver d:availableDrivers)
 {
   System.out.println(d);
 }
-Driver firstAvailableDriver=DriverService.findFirstAvailableDriver(driverlist);
-if(firstAvailableDriver==null)
-{
-  System.out.println("No Available Drivers");
-}
-else{
-  System.out.println(firstAvailableDriver);
-}
+
+Rider rider2=new Rider("T58323", "Thara", "94805039305");
+Rider rider3=new Rider("T583596", "Shalini", "8596743939");
+
+Ride ride2 = new Ride("YFJGOG9", 10.09, rider2);
+Ride ride3 = new Ride("It95GOG9", 11.00, rider3);
 
 
-
+DriverService.assignDriverToRide(ride2, driverlist);
+DriverService.assignDriverToRide(ride3, driverlist);
+System.out.println(ride2);
+System.out.println(ride3);
+System.out.println(ride2.getDriver().getAvailiabilityStatus());
 }
 }
