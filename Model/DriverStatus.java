@@ -1,4 +1,4 @@
-enum DriverStatus{
+enum DriverStatus {
   AVAILABLE,
   BUSY,
   OFFLINE
