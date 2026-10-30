@@ -28,7 +28,7 @@ class Rider {
     if (points >= 0.0 && points <= 5.0) {
       rating = points;
     } else {
-      System.out.println("Rating must be between 5.0 and 0.0");
+      System.out.println("Rating must be between 0.0 and 5.0");
     }
   }
 

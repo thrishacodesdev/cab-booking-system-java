@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Main {
   public static void main(String[] args) {
-    Rider rider1 = new Rider("4567E", "Trisha", "847593946028");
+    Rider rider1 = new Rider("4567E", "Merina", "847593946028");
     System.out.println(rider1.getRiderId());
     System.out.println(rider1.getName());
     System.out.println(rider1.getPhoneNumber());
@@ -35,7 +35,7 @@ public class Main {
     System.out.println(ride1.getRideStatus());
 
     Driver driver2 = new Driver("thsl34gof", "Thara", "3865739597", "hdieu2");
-    driver2.setAvailiabilityStatus(DriverStatus.OFFLINE);
+    driver2.setAvailiabilityStatus(DriverStatus.AVAILABLE);
 
     System.out.println(driver2.getAvailiabilityStatus());
 
@@ -63,10 +63,12 @@ public class Main {
     Ride ride2 = new Ride("YFJGOG9", 10.09, rider2);
     Ride ride3 = new Ride("It95GOG9", 11.00, rider3);
 
-    DriverService.assignDriverToRide(ride2, driverlist);
-    DriverService.assignDriverToRide(ride3, driverlist);
-    System.out.println(ride2);
-    System.out.println(ride3);
-    
+    boolean assigned1 = DriverService.assignDriverToRide(ride2, driverlist);
+    if (assigned1) {
+      System.out.println("You driver is on the way");
+    } else {
+      System.out.println("Sorry no driver is available");
+    }
+
   }
 }

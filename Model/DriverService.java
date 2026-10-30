@@ -17,20 +17,21 @@ public class DriverService {
     List<Driver> available = findAllAvailableDriver(allDrivers);
 
     if (available.isEmpty()) {
-      throw new NoDriverAvailableException("Drivers not Available");
+      throw new NoDriverAvailableException();
     } else {
       return available.get(0);
     }
   }
 
-  public static void assignDriverToRide(Ride ride, List<Driver> allDrivers) {
+  public static boolean assignDriverToRide(Ride ride, List<Driver> allDrivers) {
     try {
       Driver firstAvailableDriver = findFirstAvailableDriver(allDrivers);
       ride.setDriver(firstAvailableDriver);
       firstAvailableDriver.setAvailiabilityStatus(DriverStatus.BUSY);
+     return true;
     } catch (NoDriverAvailableException e) {
-      System.out.println("Failed :" + e);
       ride.setRideStatus(RideStatus.CANCELLED);
+     return false;
     }
   }
 }
